@@ -1,0 +1,50 @@
+Verificar se o Nodejs foi instalado, basta usar o comando no CMD
+node -v
+vai retornar v18.16.0
+
+Para iniciar o projeto: npm init -y
+
+	npm install express express-handlebars mongodb nodemon
+
+crie um arquivo index.js
+
+Crie uma Pasta com o nome db e dentro insira um arquivo chamado connection.js
+
+/Aqui se você encontrar um erro usando o o nome localhost, troque pelo IP da sua máquina
+//Para Encontrar o IP da sua máquina ou a porta que está rodando o Mongo use o comando: db.runCommand({whatsmyuri: 1}) 
+
+mongodb://127.0.0.1:27017/testemongo'
+
+
+async: Aguarda uma promessa ser executada, no caso a nossa conexão ter um resultado bem sucedido
+
+
+await: A expressão await faz a execução de uma função async pausar, para esperar pelo retorno da Promise , e resume a execução da função async quando o valor da Promise é resolvido. Ele então retorna o valor final da Promise. Se esse valor não for uma Promise , ele é convertido para uma Promise resolvida.
+
+
+URI: Em português: Identificador de Recursos Universal, como diz o próprio nome, é o identificador do recurso. Pode ser uma imagem, uma página, etc, pois tudo o que está disponível na internet precisa de um identificador único para que não seja confundido.
+
+
+   /*// Dados para criar os documentos
+    const documentos = [
+      {
+        nome: "Exemplo",
+        idade: 25,
+        email: "exemplo@example.com"
+      },
+      {
+        nome: "Ítalo", 
+        idade: 34,
+        email: "italo@italo.com"
+      },
+      {
+        nome: "Matheus",
+        idade: 17,
+        email: "matheus@matheus.com"
+      }
+    ];
+*/
+
+
+
+

@@ -1,0 +1,27 @@
+const { MongoClient, ObjectId } = require('mongodb');
+
+const uri = 'mongodb://localhost:27017/seu_banco_de_dados';
+const cliente = new MongoClient(uri);
+
+async function excluirDocumento() {
+  try {
+    await cliente.connect();
+    console.log("Conectado ao MongoDB");
+
+    const database = cliente.db();
+    const collection = database.collection('sua_colecao'); // Substitua 'sua_colecao' pelo nome da sua coleção
+
+    // Dados para exclusão
+    const filtro = { _id: ObjectId('id_do_documento') };
+
+    // Executar a operação de exclusão
+    const resultado = await collection.deleteOne(filtro);
+    console.log(`${resultado.deletedCount} documento(s) excluído(s) com sucesso.`);
+  } catch (err) {
+    console.log(err);
+  } finally {
+    cliente.close(); // Fechar a conexão após a conclusão das operações
+  }
+}
+
+excluirDocumento();

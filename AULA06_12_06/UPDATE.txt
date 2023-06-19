@@ -1,0 +1,28 @@
+const { MongoClient, ObjectId } = require('mongodb');
+
+const uri = 'mongodb://localhost:27017/seu_banco_de_dados';
+const cliente = new MongoClient(uri);
+
+async function atualizarDocumento() {
+  try {
+    await cliente.connect();
+    console.log("Conectado ao MongoDB");
+
+    const database = cliente.db();
+    const collection = database.collection('sua_colecao'); // Substitua 'sua_colecao' pelo nome da sua coleção
+
+    // Dados para atualização
+    const filtro = { _id: ObjectId('id_do_documento') };
+    const atualizacao = { $set: { nome: 'Novo Nome', idade: 30 } };
+
+    // Executar a operação de atualização
+    const resultado = await collection.updateOne(filtro, atualizacao);
+    console.log(`${resultado.modifiedCount} documento(s) atualizado(s) com sucesso.`);
+  } catch (err) {
+    console.log(err);
+  } finally {
+    cliente.close(); // Fechar a conexão após a conclusão das operações
+  }
+}
+
+atualizarDocumento();
